@@ -464,6 +464,16 @@ trait Asserts
         \Codeception\PHPUnit\TestCase::assertStringNotContainsStringIgnoringCase($needle, $haystack, $message);
     }
 
+    protected function assertStringEndsWith($suffix, $string, $message = '')
+    {
+        \Codeception\PHPUnit\TestCase::assertStringEndsWith($suffix, $string, $message);
+    }
+
+    protected function assertStringEndsNotWith($suffix, $string, $message = '')
+    {
+        \Codeception\PHPUnit\TestCase::assertStringEndsNotWith($suffix, $string, $message);
+    }
+
     protected function assertIsArray($actual, $message = '')
     {
         \Codeception\PHPUnit\TestCase::assertIsArray($actual, $message);

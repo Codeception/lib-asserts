@@ -464,11 +464,17 @@ trait Asserts
         \Codeception\PHPUnit\TestCase::assertStringNotContainsStringIgnoringCase($needle, $haystack, $message);
     }
 
+    /**
+     * @since 1.1.0 of module-asserts
+     */
     protected function assertStringEndsWith($suffix, $string, $message = '')
     {
         \Codeception\PHPUnit\TestCase::assertStringEndsWith($suffix, $string, $message);
     }
 
+    /**
+     * @since 1.1.0 of module-asserts
+     */
     protected function assertStringEndsNotWith($suffix, $string, $message = '')
     {
         \Codeception\PHPUnit\TestCase::assertStringEndsNotWith($suffix, $string, $message);

@@ -1,6 +1,10 @@
 <?php
 namespace Codeception\Util\Shared;
 
+use Codeception\PHPUnit\TestCase;
+use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Constraint\LogicalNot;
+
 trait Asserts
 {
     protected function assert($arguments, $not = false)
@@ -34,7 +38,7 @@ trait Asserts
      */
     protected function assertEquals($expected, $actual, $message = '', $delta = 0.0)
     {
-        \PHPUnit\Framework\Assert::assertEquals($expected, $actual, $message, $delta);
+        Assert::assertEquals($expected, $actual, $message, $delta);
     }
 
     /**
@@ -47,7 +51,7 @@ trait Asserts
      */
     protected function assertNotEquals($expected, $actual, $message = '', $delta = 0.0)
     {
-        \PHPUnit\Framework\Assert::assertNotEquals($expected, $actual, $message, $delta);
+        Assert::assertNotEquals($expected, $actual, $message, $delta);
     }
 
     /**
@@ -59,7 +63,7 @@ trait Asserts
      */
     protected function assertSame($expected, $actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertSame($expected, $actual, $message);
+        Assert::assertSame($expected, $actual, $message);
     }
 
     /**
@@ -71,7 +75,7 @@ trait Asserts
      */
     protected function assertNotSame($expected, $actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNotSame($expected, $actual, $message);
+        Assert::assertNotSame($expected, $actual, $message);
     }
 
     /**
@@ -83,7 +87,7 @@ trait Asserts
      */
     protected function assertGreaterThan($expected, $actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertGreaterThan($expected, $actual, $message);
+        Assert::assertGreaterThan($expected, $actual, $message);
     }
 
     /**
@@ -95,7 +99,7 @@ trait Asserts
      */
     protected function assertGreaterThanOrEqual($expected, $actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertGreaterThanOrEqual($expected, $actual, $message);
+        Assert::assertGreaterThanOrEqual($expected, $actual, $message);
     }
 
     /**
@@ -107,7 +111,7 @@ trait Asserts
      */
     protected function assertLessThan($expected, $actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertLessThan($expected, $actual, $message);
+        Assert::assertLessThan($expected, $actual, $message);
     }
 
     /**
@@ -119,7 +123,7 @@ trait Asserts
      */
     protected function assertLessThanOrEqual($expected, $actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertLessThanOrEqual($expected, $actual, $message);
+        Assert::assertLessThanOrEqual($expected, $actual, $message);
     }
 
 
@@ -132,7 +136,7 @@ trait Asserts
      */
     protected function assertContains($needle, $haystack, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertContains($needle, $haystack, $message);
+        Assert::assertContains($needle, $haystack, $message);
     }
 
     /**
@@ -144,7 +148,7 @@ trait Asserts
      */
     protected function assertNotContains($needle, $haystack, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNotContains($needle, $haystack, $message);
+        Assert::assertNotContains($needle, $haystack, $message);
     }
 
     /**
@@ -157,7 +161,7 @@ trait Asserts
     protected function assertRegExp($pattern, $string, $message = '')
     {
 
-        \Codeception\PHPUnit\TestCase::assertRegExp($pattern, $string, $message);
+        TestCase::assertRegExp($pattern, $string, $message);
     }
     
     /**
@@ -169,7 +173,7 @@ trait Asserts
      */
     protected function assertNotRegExp($pattern, $string, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertNotRegExp($pattern, $string, $message);
+        TestCase::assertNotRegExp($pattern, $string, $message);
     }
 
     /**
@@ -181,7 +185,7 @@ trait Asserts
      */
     protected function assertStringStartsWith($prefix, $string, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertStringStartsWith($prefix, $string, $message);
+        Assert::assertStringStartsWith($prefix, $string, $message);
     }
 
     /**
@@ -193,7 +197,7 @@ trait Asserts
      */
     protected function assertStringStartsNotWith($prefix, $string, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertStringStartsNotWith($prefix, $string, $message);
+        Assert::assertStringStartsNotWith($prefix, $string, $message);
     }
 
 
@@ -205,7 +209,7 @@ trait Asserts
      */
     protected function assertEmpty($actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertEmpty($actual, $message);
+        Assert::assertEmpty($actual, $message);
     }
 
     /**
@@ -216,7 +220,7 @@ trait Asserts
      */
     protected function assertNotEmpty($actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNotEmpty($actual, $message);
+        Assert::assertNotEmpty($actual, $message);
     }
 
     /**
@@ -227,7 +231,7 @@ trait Asserts
      */
     protected function assertNull($actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNull($actual, $message);
+        Assert::assertNull($actual, $message);
     }
 
     /**
@@ -238,7 +242,7 @@ trait Asserts
      */
     protected function assertNotNull($actual, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNotNull($actual, $message);
+        Assert::assertNotNull($actual, $message);
     }
 
     /**
@@ -249,7 +253,7 @@ trait Asserts
      */
     protected function assertTrue($condition, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertTrue($condition, $message);
+        Assert::assertTrue($condition, $message);
     }
 
     /**
@@ -260,7 +264,7 @@ trait Asserts
      */
     protected function assertNotTrue($condition, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNotTrue($condition, $message);
+        Assert::assertNotTrue($condition, $message);
     }
 
     /**
@@ -271,7 +275,7 @@ trait Asserts
      */
     protected function assertFalse($condition, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertFalse($condition, $message);
+        Assert::assertFalse($condition, $message);
     }
 
     /**
@@ -282,7 +286,7 @@ trait Asserts
      */
     protected function assertNotFalse($condition, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNotFalse($condition, $message);
+        Assert::assertNotFalse($condition, $message);
     }
 
     /**
@@ -293,7 +297,7 @@ trait Asserts
      */
     protected function assertThat($haystack, $constraint, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertThat($haystack, $constraint, $message);
+        Assert::assertThat($haystack, $constraint, $message);
     }
 
     /**
@@ -305,8 +309,8 @@ trait Asserts
      */
     protected function assertThatItsNot($haystack, $constraint, $message = '')
     {
-        $constraint = new \PHPUnit\Framework\Constraint\LogicalNot($constraint);
-        \PHPUnit\Framework\Assert::assertThat($haystack, $constraint, $message);
+        $constraint = new LogicalNot($constraint);
+        Assert::assertThat($haystack, $constraint, $message);
     }
 
     
@@ -318,7 +322,7 @@ trait Asserts
      */
     protected function assertFileExists($filename, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertFileExists($filename, $message);
+        Assert::assertFileExists($filename, $message);
     }
     
         
@@ -330,7 +334,7 @@ trait Asserts
      */
     protected function assertFileNotExists($filename, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertFileNotExists($filename, $message);
+        TestCase::assertFileNotExists($filename, $message);
     }
 
     /**
@@ -340,7 +344,7 @@ trait Asserts
      */
     protected function assertGreaterOrEquals($expected, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertGreaterThanOrEqual($expected, $actual, $description);
+        Assert::assertGreaterThanOrEqual($expected, $actual, $description);
     }
 
     /**
@@ -350,7 +354,7 @@ trait Asserts
      */
     protected function assertLessOrEquals($expected, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertLessThanOrEqual($expected, $actual, $description);
+        Assert::assertLessThanOrEqual($expected, $actual, $description);
     }
 
     /**
@@ -359,7 +363,7 @@ trait Asserts
      */
     protected function assertIsEmpty($actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertEmpty($actual, $description);
+        Assert::assertEmpty($actual, $description);
     }
 
     /**
@@ -369,7 +373,7 @@ trait Asserts
      */
     protected function assertArrayHasKey($key, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertArrayHasKey($key, $actual, $description);
+        Assert::assertArrayHasKey($key, $actual, $description);
     }
 
     /**
@@ -379,7 +383,7 @@ trait Asserts
      */
     protected function assertArrayNotHasKey($key, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertArrayNotHasKey($key, $actual, $description);
+        Assert::assertArrayNotHasKey($key, $actual, $description);
     }
 
     /**
@@ -392,7 +396,7 @@ trait Asserts
      */
     protected function assertArraySubset($subset, $array, $strict = false, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertArraySubset($subset, $array, $strict, $message);
+        Assert::assertArraySubset($subset, $array, $strict, $message);
     }
 
     /**
@@ -402,7 +406,7 @@ trait Asserts
      */
     protected function assertCount($expectedCount, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertCount($expectedCount, $actual, $description);
+        Assert::assertCount($expectedCount, $actual, $description);
     }
 
     /**
@@ -412,7 +416,7 @@ trait Asserts
      */
     protected function assertInstanceOf($class, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertInstanceOf($class, $actual, $description);
+        Assert::assertInstanceOf($class, $actual, $description);
     }
 
     /**
@@ -422,7 +426,7 @@ trait Asserts
      */
     protected function assertNotInstanceOf($class, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertNotInstanceOf($class, $actual, $description);
+        Assert::assertNotInstanceOf($class, $actual, $description);
     }
 
     /**
@@ -432,7 +436,7 @@ trait Asserts
      */
     protected function assertInternalType($type, $actual, $description = '')
     {
-        \PHPUnit\Framework\Assert::assertInternalType($type, $actual, $description);
+        Assert::assertInternalType($type, $actual, $description);
     }
     
     /**
@@ -442,27 +446,27 @@ trait Asserts
      */
     protected function fail($message)
     {
-        \PHPUnit\Framework\Assert::fail($message);
+        Assert::fail($message);
     }
 
     protected function assertStringContainsString($needle, $haystack, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertStringContainsString($needle, $haystack, $message);
+        TestCase::assertStringContainsString($needle, $haystack, $message);
     }
 
     protected function assertStringNotContainsString($needle, $haystack, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertStringNotContainsString($needle, $haystack, $message);
+        TestCase::assertStringNotContainsString($needle, $haystack, $message);
     }
 
     protected function assertStringContainsStringIgnoringCase($needle, $haystack, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertStringContainsStringIgnoringCase($needle, $haystack, $message);
+        TestCase::assertStringContainsStringIgnoringCase($needle, $haystack, $message);
     }
 
     protected function assertStringNotContainsStringIgnoringCase($needle, $haystack, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertStringNotContainsStringIgnoringCase($needle, $haystack, $message);
+        TestCase::assertStringNotContainsStringIgnoringCase($needle, $haystack, $message);
     }
 
     /**
@@ -470,7 +474,7 @@ trait Asserts
      */
     protected function assertStringEndsWith($suffix, $string, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertStringEndsWith($suffix, $string, $message);
+        TestCase::assertStringEndsWith($suffix, $string, $message);
     }
 
     /**
@@ -478,136 +482,136 @@ trait Asserts
      */
     protected function assertStringEndsNotWith($suffix, $string, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertStringEndsNotWith($suffix, $string, $message);
+        TestCase::assertStringEndsNotWith($suffix, $string, $message);
     }
 
     protected function assertIsArray($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsArray($actual, $message);
+        TestCase::assertIsArray($actual, $message);
     }
 
     protected function assertIsBool($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsBool($actual, $message);
+        TestCase::assertIsBool($actual, $message);
     }
 
     protected function assertIsFloat($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsFloat($actual, $message);
+        TestCase::assertIsFloat($actual, $message);
     }
 
     protected function assertIsInt($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsInt($actual, $message);
+        TestCase::assertIsInt($actual, $message);
     }
 
     protected function assertIsNumeric($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNumeric($actual, $message);
+        TestCase::assertIsNumeric($actual, $message);
     }
 
     protected function assertIsObject($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsObject($actual, $message);
+        TestCase::assertIsObject($actual, $message);
     }
 
     protected function assertIsResource($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsResource($actual, $message);
+        TestCase::assertIsResource($actual, $message);
     }
 
     protected function assertIsString($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsString($actual, $message);
+        TestCase::assertIsString($actual, $message);
     }
 
     protected function assertIsScalar($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsScalar($actual, $message);
+        TestCase::assertIsScalar($actual, $message);
     }
 
     protected function assertIsCallable($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsCallable($actual, $message);
+        TestCase::assertIsCallable($actual, $message);
     }
 
     protected function assertIsNotArray($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotArray($actual, $message);
+        TestCase::assertIsNotArray($actual, $message);
     }
 
     protected function assertIsNotBool($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotBool($actual, $message);
+        TestCase::assertIsNotBool($actual, $message);
     }
 
     protected function assertIsNotFloat($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotFloat($actual, $message);
+        TestCase::assertIsNotFloat($actual, $message);
     }
 
     protected function assertIsNotInt($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotInt($actual, $message);
+        TestCase::assertIsNotInt($actual, $message);
     }
 
     protected function assertIsNotNumeric($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotNumeric($actual, $message);
+        TestCase::assertIsNotNumeric($actual, $message);
     }
 
     protected function assertIsNotObject($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotObject($actual, $message);
+        TestCase::assertIsNotObject($actual, $message);
     }
 
     protected function assertIsNotResource($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotResource($actual, $message);
+        TestCase::assertIsNotResource($actual, $message);
     }
 
     protected function assertIsNotString($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotString($actual, $message);
+        TestCase::assertIsNotString($actual, $message);
     }
 
     protected function assertIsNotScalar($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotScalar($actual, $message);
+        TestCase::assertIsNotScalar($actual, $message);
     }
 
     protected function assertIsNotCallable($actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertIsNotCallable($actual, $message);
+        TestCase::assertIsNotCallable($actual, $message);
     }
 
     protected function assertEqualsCanonicalizing($expected, $actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertEqualsCanonicalizing($expected, $actual, $message);
+        TestCase::assertEqualsCanonicalizing($expected, $actual, $message);
     }
 
     protected function assertNotEqualsCanonicalizing($expected, $actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertNotEqualsCanonicalizing($expected, $actual, $message);
+        TestCase::assertNotEqualsCanonicalizing($expected, $actual, $message);
     }
 
     protected function assertEqualsIgnoringCase($expected, $actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertEqualsIgnoringCase($expected, $actual, $message);
+        TestCase::assertEqualsIgnoringCase($expected, $actual, $message);
     }
 
     protected function assertNotEqualsIgnoringCase($expected, $actual, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertNotEqualsIgnoringCase($expected, $actual, $message);
+        TestCase::assertNotEqualsIgnoringCase($expected, $actual, $message);
     }
 
     protected function assertEqualsWithDelta($expected, $actual, $delta, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertEqualsWithDelta($expected, $actual, $delta, $message);
+        TestCase::assertEqualsWithDelta($expected, $actual, $delta, $message);
     }
 
     protected function assertNotEqualsWithDelta($expected, $actual, $delta, $message = '')
     {
-        \Codeception\PHPUnit\TestCase::assertNotEqualsWithDelta($expected, $actual, $delta, $message);
+        TestCase::assertNotEqualsWithDelta($expected, $actual, $delta, $message);
     }
 }

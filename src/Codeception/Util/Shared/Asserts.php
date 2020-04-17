@@ -156,7 +156,8 @@ trait Asserts
      */
     protected function assertRegExp($pattern, $string, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertRegExp($pattern, $string, $message);
+
+        \Codeception\PHPUnit\TestCase::assertRegExp($pattern, $string, $message);
     }
     
     /**
@@ -168,7 +169,7 @@ trait Asserts
      */
     protected function assertNotRegExp($pattern, $string, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertNotRegExp($pattern, $string, $message);
+        \Codeception\PHPUnit\TestCase::assertNotRegExp($pattern, $string, $message);
     }
 
     /**
@@ -329,7 +330,7 @@ trait Asserts
      */
     protected function assertFileNotExists($filename, $message = '')
     {
-        \PHPUnit\Framework\Assert::assertFileNotExists($filename, $message);
+        \Codeception\PHPUnit\TestCase::assertFileNotExists($filename, $message);
     }
 
     /**

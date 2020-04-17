@@ -160,10 +160,22 @@ trait Asserts
      */
     protected function assertRegExp($pattern, $string, $message = '')
     {
-
         TestCase::assertRegExp($pattern, $string, $message);
     }
-    
+
+    /**
+     * Checks that string match with pattern
+     *
+     * Alias of assertRegExp
+     * @param string $pattern
+     * @param string $string
+     * @param string $message
+     */
+    protected function assertMatchesRegularExpression($pattern, $string, $message = '')
+    {
+        TestCase::assertRegExp($pattern, $string, $message);
+    }
+
     /**
      * Checks that string not match with pattern
      *
@@ -172,6 +184,19 @@ trait Asserts
      * @param string $message
      */
     protected function assertNotRegExp($pattern, $string, $message = '')
+    {
+        TestCase::assertNotRegExp($pattern, $string, $message);
+    }
+
+    /**
+     * Checks that string not match with pattern
+     *
+     * Alias of assertNotRegExp
+     * @param string $pattern
+     * @param string $string
+     * @param string $message
+     */
+    protected function assertDoesNotMatchRegularExpression($pattern, $string, $message = '')
     {
         TestCase::assertNotRegExp($pattern, $string, $message);
     }
@@ -324,8 +349,8 @@ trait Asserts
     {
         Assert::assertFileExists($filename, $message);
     }
-    
-        
+
+
     /**
      * Checks if file doesn't exist
      *
@@ -333,6 +358,18 @@ trait Asserts
      * @param string $message
      */
     protected function assertFileNotExists($filename, $message = '')
+    {
+        TestCase::assertFileNotExists($filename, $message);
+    }
+
+    /**
+     * Checks if file doesn't exist
+     *
+     * Alias of assertFileNotExists
+     * @param string $filename
+     * @param string $message
+     */
+    protected function assertFileDoesNotExist($filename, $message = '')
     {
         TestCase::assertFileNotExists($filename, $message);
     }

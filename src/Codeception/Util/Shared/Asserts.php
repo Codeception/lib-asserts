@@ -36,15 +36,49 @@ trait Asserts
     }
 
     /**
-     * Asserts that a string matches a given regular expression.
+     * Asserts that a file does not exist.
      *
-     * @param string $pattern
-     * @param string $string
+     * @param string $filename
      * @param string $message
      */
-    protected function assertMatchesRegularExpression($pattern, $string, $message = '')
+    protected function assertFileNotExists($filename, $message = '')
     {
-        TestCase::assertRegExp($pattern, $string, $message);
+        TestCase::assertFileNotExists($filename, $message);
+    }
+
+    /**
+     * Asserts that a value is greater than or equal to another value.
+     *
+     * @param $expected
+     * @param $actual
+     * @param string $message
+     */
+    protected function assertGreaterOrEquals($expected, $actual, $message = '')
+    {
+        TestCase::assertGreaterThanOrEqual($expected, $actual, $message);
+    }
+
+    /**
+     * Asserts that a variable is empty.
+     *
+     * @param $actual
+     * @param string $message
+     */
+    protected function assertIsEmpty($actual, $message = '')
+    {
+        TestCase::assertEmpty($actual, $message);
+    }
+
+    /**
+     * Asserts that a value is smaller than or equal to another value.
+     *
+     * @param $expected
+     * @param $actual
+     * @param string $message
+     */
+    protected function assertLessOrEquals($expected, $actual, $message = '')
+    {
+        TestCase::assertLessThanOrEqual($expected, $actual, $message);
     }
 
     /**
@@ -54,9 +88,21 @@ trait Asserts
      * @param string $string
      * @param string $message
      */
-    protected function assertDoesNotMatchRegularExpression($pattern, $string, $message = '')
+    protected function assertNotRegExp($pattern, $string, $message = '')
     {
         TestCase::assertNotRegExp($pattern, $string, $message);
+    }
+
+    /**
+     * Asserts that a string matches a given regular expression.
+     *
+     * @param string $pattern
+     * @param string $string
+     * @param string $message
+     */
+    protected function assertRegExp($pattern, $string, $message = '')
+    {
+        TestCase::assertRegExp($pattern, $string, $message);
     }
 
     /**
@@ -69,17 +115,6 @@ trait Asserts
     protected function assertThatItsNot($value, $constraint, $message = '')
     {
         $constraint = new LogicalNot($constraint);
-        TestCase::assertThat($haystack, $constraint, $message);
-    }
-
-    /**
-     * Asserts that a file does not exist.
-     *
-     * @param string $filename
-     * @param string $message
-     */
-    protected function assertFileDoesNotExist($filename, $message = '')
-    {
-        TestCase::assertFileNotExists($filename, $message);
+        TestCase::assertThat($value, $constraint, $message);
     }
 }

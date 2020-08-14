@@ -10,19 +10,6 @@ use PHPUnit\Framework\Constraint\Constraint;
 
 trait InheritedAsserts
 {
-    protected function anything()
-    {
-        Assert::anything();
-    }
-
-    /**
-     * @param int|string $key
-     */
-    protected function arrayHasKey($key)
-    {
-        Assert::arrayHasKey($key);
-    }
-
     /**
      * Asserts that an array has a specified key.
      *

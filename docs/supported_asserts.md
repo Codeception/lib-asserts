@@ -1,6 +1,17 @@
 # List of supported asserts
+
+## Codeception
 ```
-assert
+assertFileNotExists
+assertGreaterOrEquals
+assertIsEmpty
+assertLessOrEquals
+assertNotRegExp
+assertRegExp
+assertThatItsNot
+```
+## PHPUnit
+```
 assertArrayHasKey
 assertArrayNotHasKey
 assertClassHasAttribute
@@ -30,8 +41,6 @@ assertFileEquals
 assertFileEqualsCanonicalizing
 assertFileEqualsIgnoringCase
 assertFileExists
-assertFileNotExists
-assertGreaterOrEquals
 assertFileIsNotReadable
 assertFileIsNotWritable
 assertFileIsReadable
@@ -47,7 +56,6 @@ assertInstanceOf
 assertIsArray
 assertIsBool
 assertIsCallable
-assertIsEmpty
 assertIsClosedResource
 assertIsFloat
 assertIsInt
@@ -72,7 +80,6 @@ assertIsReadable
 assertIsResource
 assertIsScalar
 assertIsString
-assertLessOrEquals
 assertIsWritable
 assertJson
 assertJsonFileEqualsJsonFile
@@ -85,7 +92,6 @@ assertLessThan
 assertLessThanOrEqual
 assertMatchesRegularExpression
 assertNan
-assertNot
 assertNotContains
 assertNotContainsEquals
 assertNotContainsOnly
@@ -98,12 +104,10 @@ assertNotEqualsWithDelta
 assertNotFalse
 assertNotInstanceOf
 assertNotNull
-assertNotRegExp
 assertNotSame
 assertNotSameSize
 assertNotTrue
 assertNull
-assertRegExp
 assertObjectHasAttribute
 assertObjectNotHasAttribute
 assertSame
@@ -127,7 +131,6 @@ assertStringNotMatchesFormatFile
 assertStringStartsNotWith
 assertStringStartsWith
 assertThat
-assertThatItsNot
 assertTrue
 assertXmlFileEqualsXmlFile
 assertXmlFileNotEqualsXmlFile

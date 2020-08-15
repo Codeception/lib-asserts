@@ -136,7 +136,7 @@ trait InheritedAsserts
      * @param Countable|iterable $haystack
      * @param string $message
      */
-    protected function assertCount($expectedCount, $haystack, $message)
+    protected function assertCount($expectedCount, $haystack, $message = '')
     {
         Assert::assertCount($expectedCount, $haystack, $message);
     }

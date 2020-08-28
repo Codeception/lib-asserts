@@ -3,6 +3,7 @@
 namespace Codeception\Util\Shared;
 
 use ArrayAccess;
+use Codeception\PHPUnit\TestCase;
 use Countable;
 use DOMDocument;
 use PHPUnit\Framework\Assert;
@@ -216,7 +217,7 @@ trait InheritedAsserts
      */
     protected function assertDoesNotMatchRegularExpression($pattern, $string, $message = '')
     {
-        Assert::assertDoesNotMatchRegularExpression($pattern, $string, $message);
+        TestCase::assertNotRegExp($pattern, $string, $message);
     }
 
     /**
@@ -251,7 +252,7 @@ trait InheritedAsserts
      */
     protected function assertEqualsCanonicalizing($expected, $actual, $message = '')
     {
-        Assert::assertEqualsCanonicalizing($expected, $actual, $message);
+        TestCase::assertEqualsCanonicalizing($expected, $actual, $message);
     }
 
     /**
@@ -263,7 +264,7 @@ trait InheritedAsserts
      */
     protected function assertEqualsIgnoringCase($expected, $actual, $message = '')
     {
-        Assert::assertEqualsIgnoringCase($expected, $actual, $message);
+        TestCase::assertEqualsIgnoringCase($expected, $actual, $message);
     }
 
     /**
@@ -276,7 +277,7 @@ trait InheritedAsserts
      */
     protected function assertEqualsWithDelta($expected, $actual, $delta, $message = '')
     {
-        Assert::assertEqualsWithDelta($expected, $actual, $delta, $message);
+        TestCase::assertEqualsWithDelta($expected, $actual, $delta, $message);
     }
 
     /**
@@ -298,7 +299,7 @@ trait InheritedAsserts
      */
     protected function assertFileDoesNotExist($filename, $message = '')
     {
-        Assert::assertFileDoesNotExist($filename, $message);
+        TestCase::assertFileNotExists($filename, $message);
     }
 
     /**
@@ -494,7 +495,7 @@ trait InheritedAsserts
      */
     protected function assertIsArray($actual, $message = '')
     {
-        Assert::assertIsArray($actual, $message);
+        TestCase::assertIsArray($actual, $message);
     }
 
     /**
@@ -505,7 +506,7 @@ trait InheritedAsserts
      */
     protected function assertIsBool($actual, $message = '')
     {
-        Assert::assertIsBool($actual, $message);
+        TestCase::assertIsBool($actual, $message);
     }
 
     /**
@@ -516,7 +517,7 @@ trait InheritedAsserts
      */
     protected function assertIsCallable($actual, $message = '')
     {
-        Assert::assertIsCallable($actual, $message);
+        TestCase::assertIsCallable($actual, $message);
     }
 
     /**
@@ -527,7 +528,7 @@ trait InheritedAsserts
      */
     protected function assertIsClosedResource($actual, $message = '')
     {
-        Assert::assertIsClosedResource($actual, $message);
+        TestCase::assertIsClosedResource($actual, $message);
     }
 
     /**
@@ -538,7 +539,7 @@ trait InheritedAsserts
      */
     protected function assertIsFloat($actual, $message = '')
     {
-        Assert::assertIsFloat($actual, $message);
+        TestCase::assertIsFloat($actual, $message);
     }
 
     /**
@@ -549,7 +550,7 @@ trait InheritedAsserts
      */
     protected function assertIsInt($actual, $message = '')
     {
-        Assert::assertIsInt($actual, $message);
+        TestCase::assertIsInt($actual, $message);
     }
 
     /**
@@ -560,7 +561,7 @@ trait InheritedAsserts
      */
     protected function assertIsIterable($actual, $message = '')
     {
-        Assert::assertIsIterable($actual, $message);
+        TestCase::assertIsIterable($actual, $message);
     }
 
     /**
@@ -571,7 +572,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotArray($actual, $message = '')
     {
-        Assert::assertIsNotArray($actual, $message);
+        TestCase::assertIsNotArray($actual, $message);
     }
 
     /**
@@ -582,7 +583,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotBool($actual, $message = '')
     {
-        Assert::assertIsNotBool($actual, $message);
+        TestCase::assertIsNotBool($actual, $message);
     }
 
     /**
@@ -593,7 +594,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotCallable($actual, $message = '')
     {
-        Assert::assertIsNotCallable($actual, $message);
+        TestCase::assertIsNotCallable($actual, $message);
     }
 
     /**
@@ -604,7 +605,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotClosedResource($actual, $message = '')
     {
-        Assert::assertIsNotClosedResource($actual, $message);
+        TestCase::assertIsNotClosedResource($actual, $message);
     }
 
     /**
@@ -615,7 +616,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotFloat($actual, $message = '')
     {
-        Assert::assertIsNotFloat($actual, $message);
+        TestCase::assertIsNotFloat($actual, $message);
     }
 
     /**
@@ -626,7 +627,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotInt($actual, $message = '')
     {
-        Assert::assertIsNotInt($actual, $message);
+        TestCase::assertIsNotInt($actual, $message);
     }
 
     /**
@@ -637,7 +638,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotIterable($actual, $message = '')
     {
-        Assert::assertIsNotIterable($actual, $message);
+        TestCase::assertIsNotIterable($actual, $message);
     }
 
     /**
@@ -648,7 +649,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotNumeric($actual, $message = '')
     {
-        Assert::assertIsNotNumeric($actual, $message);
+        TestCase::assertIsNotNumeric($actual, $message);
     }
 
     /**
@@ -659,7 +660,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotObject($actual, $message = '')
     {
-        Assert::assertIsNotObject($actual, $message);
+        TestCase::assertIsNotObject($actual, $message);
     }
 
     /**
@@ -670,7 +671,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotReadable($filename, $message = '')
     {
-        Assert::assertIsNotReadable($filename, $message);
+        TestCase::assertIsNotReadable($filename, $message);
     }
 
     /**
@@ -681,7 +682,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotResource($actual, $message = '')
     {
-        Assert::assertIsNotResource($actual, $message);
+        TestCase::assertIsNotResource($actual, $message);
     }
 
     /**
@@ -692,7 +693,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotScalar($actual, $message = '')
     {
-        Assert::assertIsNotScalar($actual, $message);
+        TestCase::assertIsNotScalar($actual, $message);
     }
 
     /**
@@ -703,7 +704,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotString($actual, $message = '')
     {
-        Assert::assertIsNotString($actual, $message);
+        TestCase::assertIsNotString($actual, $message);
     }
 
     /**
@@ -714,7 +715,7 @@ trait InheritedAsserts
      */
     protected function assertIsNotWritable($filename, $message = '')
     {
-        Assert::assertIsNotWritable($filename, $message);
+        TestCase::assertIsNotWritable($filename, $message);
     }
 
     /**
@@ -725,7 +726,7 @@ trait InheritedAsserts
      */
     protected function assertIsNumeric($actual, $message = '')
     {
-        Assert::assertIsNumeric($actual, $message);
+        TestCase::assertIsNumeric($actual, $message);
     }
 
     /**
@@ -736,7 +737,7 @@ trait InheritedAsserts
      */
     protected function assertIsObject($actual, $message = '')
     {
-        Assert::assertIsObject($actual, $message);
+        TestCase::assertIsObject($actual, $message);
     }
 
     /**
@@ -747,7 +748,7 @@ trait InheritedAsserts
      */
     protected function assertIsReadable($filename, $message = '')
     {
-        Assert::assertIsReadable($filename, $message);
+        TestCase::assertIsReadable($filename, $message);
     }
 
     /**
@@ -758,7 +759,7 @@ trait InheritedAsserts
      */
     protected function assertIsResource($actual, $message = '')
     {
-        Assert::assertIsResource($actual, $message);
+        TestCase::assertIsResource($actual, $message);
     }
 
     /**
@@ -769,7 +770,7 @@ trait InheritedAsserts
      */
     protected function assertIsScalar($actual, $message = '')
     {
-        Assert::assertIsScalar($actual, $message);
+        TestCase::assertIsScalar($actual, $message);
     }
 
     /**
@@ -780,7 +781,7 @@ trait InheritedAsserts
      */
     protected function assertIsString($actual, $message = '')
     {
-        Assert::assertIsString($actual, $message);
+        TestCase::assertIsString($actual, $message);
     }
 
     /**
@@ -791,7 +792,7 @@ trait InheritedAsserts
      */
     protected function assertIsWritable($filename, $message = '')
     {
-        Assert::assertIsWritable($filename, $message);
+        TestCase::assertIsWritable($filename, $message);
     }
 
     /**
@@ -910,7 +911,7 @@ trait InheritedAsserts
      */
     protected function assertMatchesRegularExpression($pattern, $string, $message = '')
     {
-        Assert::assertMatchesRegularExpression($pattern, $string, $message);
+        TestCase::assertRegExp($pattern, $string, $message);
     }
 
     /**
@@ -986,7 +987,7 @@ trait InheritedAsserts
      */
     protected function assertNotEquals($expected, $actual, $message = '')
     {
-        Assert::assertNotEquals($expected, $actual, $message);
+        TestCase::assertNotEquals($expected, $actual, $message);
     }
 
     /**
@@ -998,7 +999,7 @@ trait InheritedAsserts
      */
     protected function assertNotEqualsCanonicalizing($expected, $actual, $message = '')
     {
-        Assert::assertNotEqualsCanonicalizing($expected, $actual, $message);
+        TestCase::assertNotEqualsCanonicalizing($expected, $actual, $message);
     }
 
     /**
@@ -1010,7 +1011,7 @@ trait InheritedAsserts
      */
     protected function assertNotEqualsIgnoringCase($expected, $actual, $message = '')
     {
-        Assert::assertNotEqualsIgnoringCase($expected, $actual, $message);
+        TestCase::assertNotEqualsIgnoringCase($expected, $actual, $message);
     }
 
     /**
@@ -1023,7 +1024,7 @@ trait InheritedAsserts
      */
     protected function assertNotEqualsWithDelta($expected, $actual, $delta, $message = '')
     {
-        Assert::assertNotEqualsWithDelta($expected, $actual, $delta, $message);
+        TestCase::assertNotEqualsWithDelta($expected, $actual, $delta, $message);
     }
 
     /**
@@ -1161,12 +1162,12 @@ trait InheritedAsserts
      */
     protected function assertStringContainsString($needle, $haystack, $message = '')
     {
-        Assert::assertStringContainsString($needle, $haystack, $message);
+        TestCase::assertStringContainsString($needle, $haystack, $message);
     }
 
     protected function assertStringContainsStringIgnoringCase($needle, $haystack, $message = '')
     {
-        Assert::assertStringContainsStringIgnoringCase($needle, $haystack, $message);
+        TestCase::assertStringContainsStringIgnoringCase($needle, $haystack, $message);
     }
 
     /**
@@ -1178,7 +1179,7 @@ trait InheritedAsserts
      */
     protected function assertStringEndsNotWith($suffix, $string, $message = '')
     {
-        Assert::assertStringEndsNotWith($suffix, $string, $message);
+        TestCase::assertStringEndsNotWith($suffix, $string, $message);
     }
 
     /**
@@ -1190,7 +1191,7 @@ trait InheritedAsserts
      */
     protected function assertStringEndsWith($suffix, $string, $message = '')
     {
-        Assert::assertStringEndsWith($suffix, $string, $message);
+        TestCase::assertStringEndsWith($suffix, $string, $message);
     }
 
     /**
@@ -1260,7 +1261,7 @@ trait InheritedAsserts
      */
     protected function assertStringNotContainsString($needle, $haystack, $message = '')
     {
-        Assert::assertStringNotContainsString($needle, $haystack, $message);
+        TestCase::assertStringNotContainsString($needle, $haystack, $message);
     }
 
     /**
@@ -1270,7 +1271,7 @@ trait InheritedAsserts
      */
     protected function assertStringNotContainsStringIgnoringCase($needle, $haystack, $message = '')
     {
-        Assert::assertStringNotContainsStringIgnoringCase($needle, $haystack, $message);
+        TestCase::assertStringNotContainsStringIgnoringCase($needle, $haystack, $message);
     }
 
     /**

@@ -1,4 +1,6 @@
-# Library shared by Codeception core and Asserts module
+# Codeception Lib Asserts
+
+Library shared by Codeception core and Asserts module.
 
 ## Installation
 

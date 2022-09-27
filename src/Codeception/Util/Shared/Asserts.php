@@ -40,7 +40,7 @@ trait Asserts
      */
     protected function assertFileNotExists(string $filename, string $message = '')
     {
-        TestCase::assertFileDoesNotExist($filename, $message);
+        TestCase::assertFileNotExists($filename, $message);
     }
 
     /**
@@ -80,7 +80,7 @@ trait Asserts
      */
     protected function assertNotRegExp(string $pattern, string $string, string $message = '')
     {
-        TestCase::assertDoesNotMatchRegularExpression($pattern, $string, $message);
+        TestCase::assertNotRegExp($pattern, $string, $message);
     }
 
     /**
@@ -88,7 +88,7 @@ trait Asserts
      */
     protected function assertRegExp(string $pattern, string $string, string $message = '')
     {
-        TestCase::assertMatchesRegularExpression($pattern, $string, $message);
+        TestCase::assertRegExp($pattern, $string, $message);
     }
 
     /**

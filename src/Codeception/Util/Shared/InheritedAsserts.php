@@ -164,7 +164,7 @@ trait InheritedAsserts
      */
     protected function assertDoesNotMatchRegularExpression(string $pattern, string $string, string $message = '')
     {
-        TestCase::assertDoesNotMatchRegularExpression($pattern, $string, $message);
+        TestCase::assertNotRegExp($pattern, $string, $message);
     }
 
     /**
@@ -236,7 +236,7 @@ trait InheritedAsserts
      */
     protected function assertFileDoesNotExist(string $filename, string $message = '')
     {
-        TestCase::assertFileDoesNotExist($filename, $message);
+        TestCase::assertFileNotExists($filename, $message);
     }
 
     /**
@@ -734,7 +734,7 @@ trait InheritedAsserts
      */
     protected function assertMatchesRegularExpression(string $pattern, string $string, string $message = '')
     {
-        TestCase::assertMatchesRegularExpression($pattern, $string, $message);
+        TestCase::assertRegExp($pattern, $string, $message);
     }
 
     /**

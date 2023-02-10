@@ -37,7 +37,13 @@ trait InheritedAsserts
      */
     protected function assertClassHasAttribute(string $attributeName, string $className, string $message = '')
     {
-        Assert::assertClassHasAttribute($attributeName, $className, $message);
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
+
+        if (method_exists(Assert::class, 'assertClassHasAttribute')) {
+            Assert::assertClassHasAttribute($attributeName, $className, $message);
+        } else {
+            Assert::assertTrue(property_exists($className, $attributeName), $message);
+        }
     }
 
     /**
@@ -53,7 +59,13 @@ trait InheritedAsserts
      */
     protected function assertClassNotHasAttribute(string $attributeName, string $className, string $message = '')
     {
-        Assert::assertClassNotHasAttribute($attributeName, $className, $message);
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
+
+        if (method_exists(Assert::class, 'assertClassNotHasAttribute')) {
+            Assert::assertClassNotHasAttribute($attributeName, $className, $message);
+        } else {
+            Assert::assertFalse(property_exists($className, $attributeName), $message);
+        }
     }
 
     /**
@@ -61,6 +73,8 @@ trait InheritedAsserts
      */
     protected function assertClassNotHasStaticAttribute(string $attributeName, string $className, string $message = '')
     {
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
+
         Assert::assertClassNotHasStaticAttribute($attributeName, $className, $message);
     }
 
@@ -908,7 +922,13 @@ trait InheritedAsserts
      */
     protected function assertObjectHasAttribute(string $attributeName, object $object, string $message = '')
     {
-        Assert::assertObjectHasAttribute($attributeName, $object, $message);
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
+
+        if (method_exists(Assert::class, 'assertObjectHasAttribute')) {
+            Assert::assertObjectHasAttribute($attributeName, $object, $message);
+        } else {
+            Assert::assertTrue(property_exists($object, $attributeName), $message);
+        }
     }
 
     /**
@@ -916,7 +936,13 @@ trait InheritedAsserts
      */
     protected function assertObjectNotHasAttribute(string $attributeName, object $object, string $message = '')
     {
-        Assert::assertObjectNotHasAttribute($attributeName, $object, $message);
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
+
+        if (method_exists(Assert::class, 'assertObjectNotHasAttribute')) {
+            Assert::assertObjectNotHasAttribute($attributeName, $object, $message);
+        } else {
+            Assert::assertFalse(property_exists($object, $attributeName), $message);
+        }
     }
 
     /**

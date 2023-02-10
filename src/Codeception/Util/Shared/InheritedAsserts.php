@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Codeception\Util\Shared;
 
-use ArrayAccess;
 use Codeception\PHPUnit\TestCase;
-use Countable;
-use DOMDocument;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\Constraint as PHPUnitConstraint;
 
@@ -17,7 +14,7 @@ trait InheritedAsserts
      * Asserts that an array has a specified key.
      *
      * @param int|string $key
-     * @param array|ArrayAccess $array
+     * @param array|\ArrayAccess $array
      */
     protected function assertArrayHasKey($key, $array, string $message = '')
     {
@@ -28,7 +25,7 @@ trait InheritedAsserts
      * Asserts that an array does not have a specified key.
      *
      * @param int|string $key
-     * @param array|ArrayAccess $array
+     * @param array|\ArrayAccess $array
      */
     protected function assertArrayNotHasKey($key, $array, string $message = '')
     {
@@ -104,7 +101,7 @@ trait InheritedAsserts
     /**
      * Asserts the number of elements of an array, Countable or Traversable.
      *
-     * @param Countable|iterable $haystack
+     * @param \Countable|iterable $haystack
      */
     protected function assertCount(int $expectedCount, $haystack, string $message = '')
     {
@@ -773,7 +770,7 @@ trait InheritedAsserts
     /**
      * Asserts the number of elements of an array, Countable or Traversable.
      *
-     * @param Countable|iterable $haystack
+     * @param \Countable|iterable $haystack
      */
     protected function assertNotCount(int $expectedCount, $haystack, string $message = '')
     {
@@ -878,8 +875,8 @@ trait InheritedAsserts
     /**
      * Assert that the size of two arrays (or `Countable` or `Traversable` objects) is not the same.
      *
-     * @param Countable|iterable $expected
-     * @param Countable|iterable $actual
+     * @param \Countable|iterable $expected
+     * @param \Countable|iterable $actual
      */
     protected function assertNotSameSize($expected, $actual, string $message = '')
     {
@@ -936,8 +933,8 @@ trait InheritedAsserts
     /**
      * Assert that the size of two arrays (or `Countable` or `Traversable` objects) is the same.
      *
-     * @param Countable|iterable $expected
-     * @param Countable|iterable $actual
+     * @param \Countable|iterable $expected
+     * @param \Countable|iterable $actual
      */
     protected function assertSameSize($expected, $actual, string $message = '')
     {
@@ -1115,7 +1112,7 @@ trait InheritedAsserts
     /**
      * Asserts that two XML documents are equal.
      *
-     * @param DOMDocument|string $actualXml
+     * @param \DOMDocument|string $actualXml
      */
     protected function assertXmlStringEqualsXmlFile(string $expectedFile, $actualXml, string $message = '')
     {
@@ -1125,8 +1122,8 @@ trait InheritedAsserts
     /**
      * Asserts that two XML documents are equal.
      *
-     * @param DOMDocument|string $expectedXml
-     * @param DOMDocument|string $actualXml
+     * @param \DOMDocument|string $expectedXml
+     * @param \DOMDocument|string $actualXml
      */
     protected function assertXmlStringEqualsXmlString($expectedXml, $actualXml, string $message = '')
     {
@@ -1136,7 +1133,7 @@ trait InheritedAsserts
     /**
      * Asserts that two XML documents are not equal.
      *
-     * @param DOMDocument|string $actualXml
+     * @param \DOMDocument|string $actualXml
      */
     protected function assertXmlStringNotEqualsXmlFile(string $expectedFile, $actualXml, string $message = '')
     {
@@ -1146,8 +1143,8 @@ trait InheritedAsserts
     /**
      * Asserts that two XML documents are not equal.
      *
-     * @param DOMDocument|string $expectedXml
-     * @param DOMDocument|string $actualXml
+     * @param \DOMDocument|string $expectedXml
+     * @param \DOMDocument|string $actualXml
      */
     protected function assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, string $message = '')
     {

@@ -51,7 +51,13 @@ trait InheritedAsserts
      */
     protected function assertClassHasStaticAttribute(string $attributeName, string $className, string $message = '')
     {
-        Assert::assertClassHasStaticAttribute($attributeName, $className, $message);
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
+
+        if (method_exists(Assert::class, 'assertClassHasStaticAttribute')) {
+            Assert::assertClassHasStaticAttribute($attributeName, $className, $message);
+        } else {
+            Assert::assertTrue(self::hasStaticAttribute($attributeName, $className), $message);
+        }
     }
 
     /**
@@ -75,7 +81,11 @@ trait InheritedAsserts
     {
         trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
 
-        Assert::assertClassNotHasStaticAttribute($attributeName, $className, $message);
+        if (method_exists(Assert::class, 'assertClassNotHasStaticAttribute')) {
+            Assert::assertClassNotHasStaticAttribute($attributeName, $className, $message);
+        } else {
+            Assert::assertFalse(self::hasStaticAttribute($attributeName, $className), $message);
+        }
     }
 
     /**
@@ -1199,5 +1209,22 @@ trait InheritedAsserts
     protected function markTestSkipped(string $message = '')
     {
         Assert::markTestSkipped($message);
+    }
+
+    /**
+     * @see https://github.com/sebastianbergmann/phpunit/blob/9.6/src/Framework/Constraint/Object/ClassHasStaticAttribute.php
+     */
+    private static function hasStaticAttribute(string $attributeName, string $className)
+    {
+        try {
+            $class = new \ReflectionClass($className);
+
+            if ($class->hasProperty($attributeName)) {
+                return $class->getProperty($attributeName)->isStatic();
+            }
+        } catch (ReflectionException $e) {
+        }
+
+        return false;
     }
 }

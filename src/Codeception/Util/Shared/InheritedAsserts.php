@@ -7,6 +7,8 @@ namespace Codeception\Util\Shared;
 use Codeception\PHPUnit\TestCase;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\Constraint as PHPUnitConstraint;
+use PHPUnit\Framework\Constraint\LogicalNot;
+use PHPUnit\Framework\Constraint\StringMatchesFormatDescription;
 
 trait InheritedAsserts
 {
@@ -1082,7 +1084,15 @@ trait InheritedAsserts
      */
     protected function assertStringNotMatchesFormat(string $format, string $string, string $message = '')
     {
-        Assert::assertStringNotMatchesFormat($format, $string, $message);
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 12', E_USER_DEPRECATED);
+
+        if (method_exists(Assert::class, 'assertStringNotMatchesFormat')) {
+            Assert::assertStringNotMatchesFormat($format, $string, $message);
+        } else {
+            $constraint = new LogicalNot(new StringMatchesFormatDescription($format));
+
+            Assert::assertThat($string, $constraint, $message);
+        }
     }
 
     /**
@@ -1090,7 +1100,21 @@ trait InheritedAsserts
      */
     protected function assertStringNotMatchesFormatFile(string $formatFile, string $string, string $message = '')
     {
-        Assert::assertStringNotMatchesFormatFile($formatFile, $string, $message);
+        trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 12', E_USER_DEPRECATED);
+
+        if (method_exists(Assert::class, 'assertStringNotMatchesFormatFile')) {
+            Assert::assertStringNotMatchesFormatFile($formatFile, $string, $message);
+        } else {
+            Assert::assertFileExists($formatFile);
+
+            $constraint = new LogicalNot(
+                new StringMatchesFormatDescription(
+                    file_get_contents($formatFile)
+                )
+            );
+
+            Assert::assertThat($string, $constraint, $message);
+        }
     }
 
     /**

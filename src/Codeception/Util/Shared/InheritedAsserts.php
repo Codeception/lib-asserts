@@ -182,6 +182,8 @@ trait InheritedAsserts
      * Asserts that a variable is empty.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert empty $actual
      */
     protected function assertEmpty($actual, string $message = '')
     {
@@ -236,6 +238,8 @@ trait InheritedAsserts
      * Asserts that a condition is false.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert false $condition
      */
     protected function assertFalse($condition, string $message = '')
     {
@@ -383,7 +387,12 @@ trait InheritedAsserts
     /**
      * Asserts that a variable is of a given type.
      *
+     * @template ExpectedType of object
+     *
      * @param mixed $actual
+     * @param class-string<ExpectedType> $expected
+     *
+     * @phpstan-assert =ExpectedType $actual
      */
     protected function assertInstanceOf(string $expected, $actual, string $message = '')
     {
@@ -394,6 +403,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type array.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert array $actual
      */
     protected function assertIsArray($actual, string $message = '')
     {
@@ -404,6 +415,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type bool.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert bool $actual
      */
     protected function assertIsBool($actual, string $message = '')
     {
@@ -414,6 +427,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type callable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert callable $actual
      */
     protected function assertIsCallable($actual, string $message = '')
     {
@@ -424,6 +439,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type resource and is closed.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert resource $actual
      */
     protected function assertIsClosedResource($actual, string $message = '')
     {
@@ -434,6 +451,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type float.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert float $actual
      */
     protected function assertIsFloat($actual, string $message = '')
     {
@@ -444,6 +463,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type int.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert int $actual
      */
     protected function assertIsInt($actual, string $message = '')
     {
@@ -454,6 +475,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type iterable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert iterable $actual
      */
     protected function assertIsIterable($actual, string $message = '')
     {
@@ -464,6 +487,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type array.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !array $actual
      */
     protected function assertIsNotArray($actual, string $message = '')
     {
@@ -474,6 +499,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type bool.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !bool $actual
      */
     protected function assertIsNotBool($actual, string $message = '')
     {
@@ -484,6 +511,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type callable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !callable $actual
      */
     protected function assertIsNotCallable($actual, string $message = '')
     {
@@ -494,6 +523,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type resource.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !resource $actual
      */
     protected function assertIsNotClosedResource($actual, string $message = '')
     {
@@ -504,6 +535,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type float.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !float $actual
      */
     protected function assertIsNotFloat($actual, string $message = '')
     {
@@ -514,6 +547,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type int.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !int $actual
      */
     protected function assertIsNotInt($actual, string $message = '')
     {
@@ -524,6 +559,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type iterable.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !iterable $actual
      */
     protected function assertIsNotIterable($actual, string $message = '')
     {
@@ -534,6 +571,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type numeric.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !numeric $actual
      */
     protected function assertIsNotNumeric($actual, string $message = '')
     {
@@ -544,6 +583,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type object.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !object $actual
      */
     protected function assertIsNotObject($actual, string $message = '')
     {
@@ -562,6 +603,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type resource.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !resource $actual
      */
     protected function assertIsNotResource($actual, string $message = '')
     {
@@ -572,6 +615,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type scalar.
      *
      * @param mixed $actual
+     *
+     * @psalm-assert !scalar $actual
      */
     protected function assertIsNotScalar($actual, string $message = '')
     {
@@ -582,6 +627,8 @@ trait InheritedAsserts
      * Asserts that a variable is not of type string.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !string $actual
      */
     protected function assertIsNotString($actual, string $message = '')
     {
@@ -600,6 +647,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type numeric.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert numeric $actual
      */
     protected function assertIsNumeric($actual, string $message = '')
     {
@@ -610,6 +659,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type object.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert object $actual
      */
     protected function assertIsObject($actual, string $message = '')
     {
@@ -628,6 +679,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type resource.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert resource $actual
      */
     protected function assertIsResource($actual, string $message = '')
     {
@@ -638,6 +691,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type scalar.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert scalar $actual
      */
     protected function assertIsScalar($actual, string $message = '')
     {
@@ -648,6 +703,8 @@ trait InheritedAsserts
      * Asserts that a variable is of type string.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert string $actual
      */
     protected function assertIsString($actual, string $message = '')
     {
@@ -795,6 +852,8 @@ trait InheritedAsserts
      * Asserts that a variable is not empty.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !empty $actual
      */
     protected function assertNotEmpty($actual, string $message = '')
     {
@@ -849,6 +908,8 @@ trait InheritedAsserts
      * Asserts that a condition is not false.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert !false $condition
      */
     protected function assertNotFalse($condition, string $message = '')
     {
@@ -858,7 +919,12 @@ trait InheritedAsserts
     /**
      * Asserts that a variable is not of a given type.
      *
+     * @template ExpectedType of object
+     *
      * @param mixed $actual
+     * @param class-string<ExpectedType> $expected
+     *
+     * @phpstan-assert !ExpectedType $actual
      */
     protected function assertNotInstanceOf(string $expected, $actual, string $message = '')
     {
@@ -869,6 +935,8 @@ trait InheritedAsserts
      * Asserts that a variable is not null.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert !null $actual
      */
     protected function assertNotNull($actual, string $message = '')
     {
@@ -901,6 +969,8 @@ trait InheritedAsserts
      * Asserts that a condition is not true.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert !true $condition
      */
     protected function assertNotTrue($condition, string $message = '')
     {
@@ -911,6 +981,8 @@ trait InheritedAsserts
      * Asserts that a variable is null.
      *
      * @param mixed $actual
+     *
+     * @phpstan-assert null $actual
      */
     protected function assertNull($actual, string $message = '')
     {
@@ -947,9 +1019,15 @@ trait InheritedAsserts
 
     /**
      * Asserts that two variables have the same type and value.
+     * Used on objects, it asserts that two variables reference
+     * the same object.
      *
-     * @param mixed $expected
+     * @template ExpectedType
+     *
+     * @param ExpectedType $expected
      * @param mixed $actual
+     *
+     * @phpstan-assert =ExpectedType $actual
      */
     protected function assertSame($expected, $actual, string $message = '')
     {
@@ -1113,6 +1191,8 @@ trait InheritedAsserts
      * Asserts that a condition is true.
      *
      * @param mixed $condition
+     *
+     * @phpstan-assert true $condition
      */
     protected function assertTrue($condition, string $message = '')
     {

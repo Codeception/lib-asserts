@@ -10,6 +10,7 @@ use PHPUnit\Framework\Constraint\Constraint as PHPUnitConstraint;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\Constraint\StringMatchesFormatDescription;
 use ReflectionClass;
+use ReflectionException;
 
 trait InheritedAsserts
 {
@@ -49,7 +50,7 @@ trait InheritedAsserts
     {
         trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
 
-        Assert::assertTrue($this->hasStaticAttribute($attributeName, $className), $message);
+        Assert::assertTrue(self::hasStaticAttribute($attributeName, $className), $message);
     }
 
     /**
@@ -69,7 +70,7 @@ trait InheritedAsserts
     protected function assertClassNotHasStaticAttribute(string $attributeName, string $className, string $message = ''): void
     {
         trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 10', E_USER_DEPRECATED);
-        Assert::assertFalse($this->hasStaticAttribute($attributeName, $className), $message);
+        Assert::assertFalse(self::hasStaticAttribute($attributeName, $className), $message);
     }
 
     /**
@@ -401,8 +402,7 @@ trait InheritedAsserts
      * Asserts that a variable is of type array.
      *
      * @param mixed $actual
-     *
-     * @phpstan-assert array $actual
+     * @phpstan-assert array<mixed> $actual
      */
     protected function assertIsArray($actual, string $message = ''): void
     {
@@ -474,7 +474,7 @@ trait InheritedAsserts
      *
      * @param mixed $actual
      *
-     * @phpstan-assert iterable $actual
+     * @phpstan-assert iterable<mixed> $actual
      */
     protected function assertIsIterable($actual, string $message = ''): void
     {
@@ -486,7 +486,7 @@ trait InheritedAsserts
      *
      * @param mixed $actual
      *
-     * @phpstan-assert !array $actual
+     * @phpstan-assert !array<mixed> $actual
      */
     protected function assertIsNotArray($actual, string $message = ''): void
     {
@@ -558,7 +558,7 @@ trait InheritedAsserts
      *
      * @param mixed $actual
      *
-     * @phpstan-assert !iterable $actual
+     * @phpstan-assert !iterable<mixed> $actual
      */
     protected function assertIsNotIterable($actual, string $message = ''): void
     {
@@ -1143,7 +1143,7 @@ trait InheritedAsserts
     /**
      * Asserts that a string does not match a given format string.
      */
-    protected function assertStringNotMatchesFormat(string $format, string $string, string $message = '')
+    protected function assertStringNotMatchesFormat(string $format, string $string, string $message = ''): void
     {
         trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 12', E_USER_DEPRECATED);
         $constraint = new LogicalNot(new StringMatchesFormatDescription($format));
@@ -1153,15 +1153,14 @@ trait InheritedAsserts
     /**
      * Asserts that a string does not match a given format string.
      */
-    protected function assertStringNotMatchesFormatFile(string $formatFile, string $string, string $message = '')
+    protected function assertStringNotMatchesFormatFile(string $formatFile, string $string, string $message = ''): void
     {
         trigger_error(__FUNCTION__ . ' was removed from PHPUnit since PHPUnit 12', E_USER_DEPRECATED);
-        Assert::assertFileExists($formatFile);
-        $constraint = new LogicalNot(
-            new StringMatchesFormatDescription(
-                file_get_contents($formatFile)
-            )
-        );
+        $content = file_get_contents($formatFile);
+        if ($content === false) {
+            Assert::fail(sprintf('Failed to read format file "%s"', $formatFile));
+        }
+        $constraint = new LogicalNot(new StringMatchesFormatDescription($content));
         Assert::assertThat($string, $constraint, $message);
     }
 
@@ -1320,8 +1319,9 @@ trait InheritedAsserts
 
     /**
      * @see https://github.com/sebastianbergmann/phpunit/blob/9.6/src/Framework/Constraint/Object/ClassHasStaticAttribute.php
+     * @param class-string $className
      */
-    private static function hasStaticAttribute(string $attributeName, string $className)
+    private static function hasStaticAttribute(string $attributeName, string $className): bool
     {
         try {
             $class = new \ReflectionClass($className);

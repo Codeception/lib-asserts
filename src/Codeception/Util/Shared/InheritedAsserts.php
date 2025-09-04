@@ -402,8 +402,7 @@ trait InheritedAsserts
      * Asserts that a variable is of type array.
      *
      * @param mixed $actual
-     *
-     * @phpstan-assert array $actual
+     * @phpstan-assert array<mixed> $actual
      */
     protected function assertIsArray($actual, string $message = ''): void
     {
@@ -475,7 +474,7 @@ trait InheritedAsserts
      *
      * @param mixed $actual
      *
-     * @phpstan-assert iterable $actual
+     * @phpstan-assert iterable<mixed> $actual
      */
     protected function assertIsIterable($actual, string $message = ''): void
     {
@@ -487,7 +486,7 @@ trait InheritedAsserts
      *
      * @param mixed $actual
      *
-     * @phpstan-assert !array $actual
+     * @phpstan-assert !array<mixed> $actual
      */
     protected function assertIsNotArray($actual, string $message = ''): void
     {
@@ -559,7 +558,7 @@ trait InheritedAsserts
      *
      * @param mixed $actual
      *
-     * @phpstan-assert !iterable $actual
+     * @phpstan-assert !iterable<mixed> $actual
      */
     protected function assertIsNotIterable($actual, string $message = ''): void
     {

@@ -92,6 +92,14 @@ trait InheritedAsserts
     }
 
     /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertNotContainsEquals(mixed $needle, iterable $haystack, string $message = ''): void
+    {
+        Assert::assertNotContainsEquals($needle, $haystack, $message);
+    }
+
+    /**
      * Asserts that a haystack contains only values of a given type.
      * @param 'array'|'bool'|'boolean'|'callable'|'double'|'float'|'int'|'integer'|'iterable'|'null'|'numeric'|'object'|'real'|'resource'|'resource (closed)'|'scalar'|'string' $type
      * @param iterable<mixed> $haystack

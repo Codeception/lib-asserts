@@ -3,3 +3,10 @@ parameters:
     paths:
         - tests/
         - src/
+    ignoreErrors:
+        -
+            message: '#Parameter \#1 \$className of static method PHPUnit\\Framework\\Assert::assertContainsOnlyInstancesOf\(\) expects class-string<object>, string given\.#'
+            path: src/Codeception/Util/Shared/InheritedAsserts.php
+        -
+            message: '#Parameter \#1 \$className of static method PHPUnit\\Framework\\Assert::assertContainsNotOnlyInstancesOf\(\) expects class-string, string given\.#'
+            path: src/Codeception/Util/Shared/InheritedAsserts.php

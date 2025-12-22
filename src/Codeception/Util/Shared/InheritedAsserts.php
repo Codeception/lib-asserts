@@ -100,13 +100,166 @@ trait InheritedAsserts
     }
 
     /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyArray(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyArray($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyBool(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyBool($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyCallable(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyCallable($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyFloat(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyFloat($haystack, $message);
+    }
+
+    /**
+     * @param class-string $className
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyInstancesOf(string $className, iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyInstancesOf($className, $haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyInt(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyInt($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyIterable(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyIterable($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyNull(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyNull($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyNumeric(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyNumeric($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyObject(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyObject($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyResource(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyResource($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyClosedResource(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyClosedResource($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyScalar(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyScalar($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsNotOnlyString(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsNotOnlyString($haystack, $message);
+    }
+
+    /**
      * Asserts that a haystack contains only values of a given type.
-     * @param 'array'|'bool'|'boolean'|'callable'|'double'|'float'|'int'|'integer'|'iterable'|'null'|'numeric'|'object'|'real'|'resource'|'resource (closed)'|'scalar'|'string' $type
+     * @param 'array'|'bool'|'boolean'|'callable'|'double'|'float'|'int'|'integer'|'iterable'|'null'|'numeric'|'object'|'real'|'resource'|'resource (closed)'|'scalar'|'string'|class-string $type
      * @param iterable<mixed> $haystack
      */
     protected function assertContainsOnly(string $type, iterable $haystack, ?bool $isNativeType = null, string $message = ''): void
     {
-        Assert::assertContainsOnly($type, $haystack, $isNativeType, $message);
+        $replacement = match ($type) {
+            'array' => 'assertContainsOnlyArray',
+            'bool', 'boolean' => 'assertContainsOnlyBool',
+            'callable' => 'assertContainsOnlyCallable',
+            'double', 'float', 'real' => 'assertContainsOnlyFloat',
+            'int', 'integer' => 'assertContainsOnlyInt',
+            'iterable' => 'assertContainsOnlyIterable',
+            'null' => 'assertContainsOnlyNull',
+            'numeric' => 'assertContainsOnlyNumeric',
+            'object' => 'assertContainsOnlyObject',
+            'resource' => 'assertContainsOnlyResource',
+            'resource (closed)' => 'assertContainsOnlyClosedResource',
+            'scalar' => 'assertContainsOnlyScalar',
+            'string' => 'assertContainsOnlyString',
+            default => null,
+        };
+
+        if (is_string($replacement)) {
+            trigger_error(
+                sprintf(
+                    '%s is deprecated since PHPUnit 11.5. Please use %s($haystack) instead of assertContainsOnly(\'%s\', $haystack)',
+                    __FUNCTION__,
+                    $replacement,
+                    $type,
+                ),
+                E_USER_DEPRECATED,
+            );
+
+            $this->$replacement($haystack, $message);
+        } else {
+            trigger_error(
+                sprintf(
+                    'assertContainsOnly() is deprecated since PHPUnit 11.5. Please use assertContainsOnlyInstancesOf(\'%s\', $haystack) instead of assertContainsOnly(\'%s\', $haystack).',
+                    $type,
+                    $type,
+                ),
+                E_USER_DEPRECATED,
+            );
+
+            Assert::assertContainsOnlyInstancesOf($type, $haystack, $message);
+        }
     }
 
     /**
@@ -117,6 +270,110 @@ trait InheritedAsserts
     protected function assertContainsOnlyInstancesOf(string $className, iterable $haystack, string $message = ''): void
     {
         Assert::assertContainsOnlyInstancesOf($className, $haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyArray(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyArray($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyBool(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyBool($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyCallable(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyCallable($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyFloat(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyFloat($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyInt(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyInt($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyIterable(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyIterable($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyNull(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyNull($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyNumeric(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyNumeric($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyObject(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyObject($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyResource(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyResource($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyClosedResource(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyClosedResource($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyScalar(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyScalar($haystack, $message);
+    }
+
+    /**
+     * @param iterable<mixed> $haystack
+     */
+    protected function assertContainsOnlyString(iterable $haystack, string $message = ''): void
+    {
+        Assert::assertContainsOnlyString($haystack, $message);
     }
 
     /**
@@ -833,14 +1090,54 @@ trait InheritedAsserts
 
     /**
      * Asserts that a haystack does not contain only values of a given type.
-     * @param 'array'|'bool'|'boolean'|'callable'|'double'|'float'|'int'|'integer'|'iterable'|'null'|'numeric'|'object'|'real'|'resource'|'resource (closed)'|'scalar'|'string' $type
+     * @param 'array'|'bool'|'boolean'|'callable'|'double'|'float'|'int'|'integer'|'iterable'|'null'|'numeric'|'object'|'real'|'resource'|'resource (closed)'|'scalar'|'string'|class-string $type
      * @param iterable<mixed> $haystack
      */
     protected function assertNotContainsOnly(string $type, iterable $haystack, ?bool $isNativeType = null, string $message = ''): void
     {
-        Assert::assertNotContainsOnly($type, $haystack, $isNativeType, $message);
-    }
+        $replacement = match ($type) {
+            'array' => 'assertContainsNotOnlyArray',
+            'bool', 'boolean' => 'assertContainsNotOnlyBool',
+            'callable' => 'assertContainsNotOnlyCallable',
+            'double', 'float', 'real' => 'assertContainsNotOnlyFloat',
+            'int', 'integer' => 'assertContainsNotOnlyInt',
+            'iterable' => 'assertContainsNotOnlyIterable',
+            'null' => 'assertContainsNotOnlyNull',
+            'numeric' => 'assertContainsNotOnlyNumeric',
+            'object' => 'assertContainsNotOnlyObject',
+            'resource' => 'assertContainsNotOnlyResource',
+            'resource (closed)' => 'assertContainsNotOnlyClosedResource',
+            'scalar' => 'assertContainsNotOnlyScalar',
+            'string' => 'assertContainsNotOnlyString',
+            default => null,
+        };
 
+        if (is_string($replacement)) {
+            trigger_error(
+                sprintf(
+                    '%s is deprecated since PHPUnit 11.5. Please use %s($haystack) instead of assertContainsNotOnly(\'%s\', $haystack)',
+                    __FUNCTION__,
+                    $replacement,
+                    $type,
+                ),
+                E_USER_DEPRECATED,
+            );
+
+            $this->$replacement($haystack, $message);
+        } else {
+            trigger_error(
+                sprintf(
+                    'assertNotContainsOnly() is deprecated since PHPUnit 11.5. Please use assertContainsNotOnlyInstancesOf(\'%s\', $haystack) instead of assertNotContainsOnly(\'%s\', $haystack).',
+                    $type,
+                    $type,
+                ),
+                E_USER_DEPRECATED,
+            );
+
+            Assert::assertContainsNotOnlyInstancesOf($type, $haystack, $message);
+        }
+    }
+    
     /**
      * Asserts the number of elements of an array, Countable or Traversable.
      *

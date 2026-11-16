@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Codeception\Util\Shared;
 
-use ArrayAccess;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Constraint\Constraint as PHPUnitConstraint;
 use PHPUnit\Framework\Constraint\LogicalNot;
@@ -16,16 +15,16 @@ trait InheritedAsserts
 {
     /**
      * Asserts that an array has a specified key.
-     * @param array<mixed>|ArrayAccess<mixed, mixed> $array
+     * @param array<mixed>|\ArrayAccess<mixed, mixed> $array
      */
-    protected function assertArrayHasKey(int|string $key, array|ArrayAccess $array, string $message = ''): void
+    protected function assertArrayHasKey(int|string $key, array|\ArrayAccess $array, string $message = ''): void
     {
         Assert::assertArrayHasKey($key, $array, $message);
     }
 
     /**
      * Asserts that an array does not have a specified key.
-     * @param array<mixed>|ArrayAccess<mixed, mixed> $array
+     * @param array<mixed>|\ArrayAccess<mixed, mixed> $array
      */
     protected function assertArrayNotHasKey(int|string $key, array|\ArrayAccess $array, string $message = ''): void
     {
